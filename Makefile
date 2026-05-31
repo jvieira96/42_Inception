@@ -24,8 +24,12 @@ RESET		= \033[0m
 ################################################################################
 
 all: setup_host data
-	$(DOCKER_COMPOSE) up --build
-	echo "$(GREEN)Inception is up and running!$(RESET)"
+	@if [ "$$(docker ps -q -f name=mariadb)" ]; then \
+		echo "$(GREEN)Inception is already running!$(RESET)"; \
+	else \
+		$(DOCKER_COMPOSE) up --build -d; \
+		echo "$(GREEN)Inception is up and running!$(RESET)"; \
+	fi
 
 setup_host:
 	@if grep -q $(HOST_LINE) /etc/hosts; then \
@@ -43,7 +47,7 @@ data:
 	fi
 
 down:
-	$(DOCKER_COMPOSE) down
+	$(DOCKER_COMPOSE) down --remove-orphans
 	echo "$(YELLOW)Containers stopped.$(RESET)"
 
 clean:
@@ -54,6 +58,7 @@ fclean: clean
 	$(DOCKER_COMPOSE) down -v --rmi all --remove-orphans
 	sudo rm -rf $(MARIADB_DIR)/*
 	sudo rm -rf $(WP_DIR)/*
+	docker system prune -af
 	echo "$(RED)Full clean done.$(RESET)"
 
 re: fclean all
