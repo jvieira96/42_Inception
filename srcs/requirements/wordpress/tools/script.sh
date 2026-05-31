@@ -22,11 +22,11 @@ if [ ! -f /var/www/html/wordpress/wp-config.php ]; then
         --admin_email=$WORDPRESS_ADMIN_EMAIL \
         --allow-root
     
-    wp user create $WORDPRESS_USER $WORDPRESS_USER_EMAIL \ 
+    wp user create $WORDPRESS_USER $WORDPRESS_USER_EMAIL \
         --user_pass=$WORDPRESS_USER_PASSWORD \
         --role=author \
         --path=/var/www/html/wordpress \
         --allow-root
 fi
 
-exec php-fpm7.4 -F
+exec php-fpm8.2 -F
