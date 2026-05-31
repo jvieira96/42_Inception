@@ -23,6 +23,7 @@ All tasks are handled through the Makefile located at the root of the repository
 Once the services are running, the website is accessible via the configured domain name:
 
 - **Main Website**: `https://jpedro-f.42.fr`
+- **User Dashboard**: `https://jpedro-f.42.fr/wp-login.php`
 - **Admin Dashboard**: `https://jpedro-f.42.fr/wp-admin`
 
 Note: Access is strictly via HTTPS (port 443). HTTP requests (port 80) are not supported per security requirements.
