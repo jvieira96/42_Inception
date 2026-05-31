@@ -57,7 +57,7 @@ docker ps
 docker network ls
 ```
 
-- **Volume Persistence**: verify that `srcs_db-volume` and `srcs_wordpress-volume` are active.
+- **Volume Persistence**: verify that `db-volume` and `wordpress-volume` are active.
 ```bash
 docker volume ls
 ```

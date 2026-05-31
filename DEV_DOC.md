@@ -159,12 +159,12 @@ docker inspect mariadb
 docker volume ls
 
 # Inspect a volume
-docker volume inspect srcs_db-volume
-docker volume inspect srcs_wordpress-volume
+docker volume inspect db-volume
+docker volume inspect wordpress-volume
 
 # Remove a specific volume (WARNING: data loss)
-docker volume rm srcs_db-volume
-docker volume rm srcs_wordpress-volume
+docker volume rm db-volume
+docker volume rm wordpress-volume
 ```
 
 ### Network management
@@ -203,8 +203,8 @@ and finds the existing data intact.
 
 | Volume | Host path | Container path |
 |---|---|---|
-| `srcs_db-volume` | `/home/jpedro-f/data/mariadb` | `/var/lib/mysql` |
-| `srcs_wordpress-volume` | `/home/jpedro-f/data/wordpress` | `/var/www/html/wordpress` |
+| `db-volume` | `/home/jpedro-f/data/mariadb` | `/var/lib/mysql` |
+| `wordpress-volume` | `/home/jpedro-f/data/wordpress` | `/var/www/html/wordpress` |
 
 ### Verify data is persisting
 ```bash
